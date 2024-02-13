@@ -1,0 +1,289 @@
+<nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+    <div class="container d-flex align-items-center">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Default</li>
+        </ol>
+
+     
+    </div><!-- End .container -->
+</nav><!-- End .breadcrumb-nav -->
+
+<div class="page-content">
+    <div class="container">
+        <div class="product-details-top">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="product-gallery product-gallery-vertical">
+                        <div class="row">
+                            <figure class="product-main-image">
+                                <img id="product-zoom" src="<%- item.image[0] %>" data-zoom-image="<%- item.image[0] %>" alt="product image">
+
+                                <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                    <i class="icon-arrows"></i>
+                                </a>
+                            </figure><!-- End .product-main-image -->
+
+                            <div id="product-zoom-gallery" class="product-image-gallery">
+                                <% item.image.forEach(function(image) { %>
+                                    <a class="product-gallery-item" href="#" data-image="<%- image %>" data-zoom-image="<%- image %>">
+                                        <img src="<%- image %>" alt="product side">
+                                    </a>
+                                <% }) %>
+                            </div><!-- End .product-image-gallery -->
+                        </div><!-- End .row -->
+                    </div><!-- End .product-gallery -->
+                </div><!-- End .col-md-6 -->
+
+                <div class="col-md-6">
+                    <div class="product-details">
+                        <h1 class="product-title"><%- item.name %></h1></h1><!-- End .product-title -->
+
+                        <div class="ratings-container">
+                            <div class="ratings">
+                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                            </div><!-- End .ratings -->
+                            <a class="ratings-text" href="#product-review-link" id="review-link">( 100 Reviews )</a>
+                        </div><!-- End .rating-container -->
+
+                        <div class="product-price">
+                            <%- formatAmount({ type: '', amount:item.price, currency: 'NGN', options: {
+                                minimumFractionDigits: 2,
+                              },}) %>
+                        </div><!-- End .product-price -->
+
+                        <div class="product-content">
+                            <p> <%- item.description %> </p>
+                        </div><!-- End .product-content -->
+
+                        <div class="details-filter-row details-row-size">
+                            <label>Color:</label>
+
+                            <div class="product-nav product-nav-thumbs">
+                                <% item.colors.forEach(function (color) { %>
+                                    <% if(color){ %>
+                                        <span id="color_set" style="width: 25px; height: 25px; border-radius: 50px; background-color: <%- color %>">
+                                           
+                                        </span>
+                                    <% } %>    
+                                <% }) %>    
+                             
+                            
+                            </div><!-- End .product-nav -->
+                        </div><!-- End .details-filter-row -->
+
+                        <div class="details-filter-row details-row-size">
+                            <label for="size">Size:</label>
+                            <div class="select-custom">
+                                <select name="size" id="size" class="form-control">
+                                    <option value="#" selected="selected">Select a size</option>
+                                    <% item.sizes.forEach(function(size){ %>
+                                        <option value="<%- size %>"><%- size %></option>
+                                    <% }) %>
+                                   
+                                </select>
+                            </div><!-- End .select-custom -->
+                        </div><!-- End .details-filter-row -->
+
+                        <div class="details-filter-row details-row-size">
+                            <label for="qty">Qty:</label>
+                            <div class="product-details-quantity">
+                                <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                            </div><!-- End .product-details-quantity -->
+                        </div><!-- End .details-filter-row -->
+
+                        <div class="product-details-action">
+                            <button id="product_add" href="#" 
+                            data-id="<%- item.id %>" 
+                            data-image="<%- item.imageUrls %>" 
+                            data-quantity="<%-
+                      item.quantity
+                    %>" 
+                    data-name="<%- item.name %>" 
+                    data-color="<%-
+                      item.colors[0]
+                    %>" 
+                    data-price="<%- item.price %>" onClick="addToCart(1)" type="button"  class="btn-product btn-cart"><span>add to cart</span></button>
+                        </div><!-- End .product-details-action -->
+
+                        <div class="product-details-footer">
+                            <div class="product-cat">
+                                <span>Category:</span>
+                                <a href="#"><%- item.category %></a>
+                            </div><!-- End .product-cat -->
+                        </div><!-- End .product-details-footer -->
+                    </div><!-- End .product-details -->
+                </div><!-- End .col-md-6 -->
+            </div><!-- End .row -->
+        </div><!-- End .product-details-top -->
+
+        <div class="product-details-tab">
+            <ul class="nav nav-pills justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab" role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
+                </li>
+         
+              
+            
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
+                    <div class="product-desc-content">
+                        <h3>Product Information</h3>
+                        <p><%- item.description %> </p>
+                      
+                    </div><!-- End .product-desc-content -->
+                </div><!-- .End .tab-pane -->
+                
+          
+            </div><!-- End .tab-content -->
+        </div><!-- End .product-details-tab -->
+
+        <h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->
+
+        
+        <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+            data-owl-options='{
+                "nav": false, 
+                "dots": true,
+                "margin": 20,
+                "loop": false,
+                "responsive": {
+                    "0": {
+                        "items":1
+                    },
+                    "480": {
+                        "items":2
+                    },
+                    "768": {
+                        "items":3
+                    },
+                    "992": {
+                        "items":4
+                    },
+                    "1200": {
+                        "items":4,
+                        "nav": true,
+                        "dots": false
+                    }
+                }
+            }'>
+
+
+            <% item.otherProduct.forEach(function(item) { %>
+            <div class="product product-27 text-center">
+                <figure class="product-media">
+                    <span class="product-label label-sale">SALE</span>
+                    <a href="product.html">
+                        <img src="<%- item.imageUrls[0] %>" alt="Product image" width="335" height="480" class="product-image" style="background-color: #fafafa;">
+                        <% if(item.imageUrls[1]){ %>
+                        <img src="<%- item.imageUrls[1] %>" alt="Product image" width="335" height="480" class="product-image-hover" style="background-color: #fafafa;">
+                        <% } %>
+                    </a>
+
+                    <div class="product-action-vertical">
+                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                        <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                    </div><!-- End .product-action-vertical -->
+                </figure><!-- End .product-media -->
+
+                <div class="product-body">
+                    <div class="product-action">
+                        <a href="#" class="btn-product btn-cart"><span>ADD TO CART</span></a>
+                    </div><!-- End .product-action -->
+
+                    <h3 class="product-cat"><a href="product.html"></a> <%- item.category  %></h3>
+                    <h3 class="product-title"><a href="product.html">  <%- item.name  %></a></h3><!-- End .product-title -->
+                    <div class="product-price">
+                       <span class="new-price"><%- formatAmount({ type: '', amount:item.price, currency: 'NGN', options: {
+                        minimumFractionDigits: 2,
+                      },}) %> </span>
+                       <span class="old-price">Was <%- formatAmount({ type: '', amount:item.price + 5000, currency: 'NGN', options: {
+                        minimumFractionDigits: 2,
+                      },}) %> </span>
+                    </div><!-- End .product-price -->
+
+                    <div class="product-footer">
+                        <div class="ratings-container">
+                            <div class="ratings">
+                                <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
+                            </div><!-- End .ratings -->
+                            <span class="ratings-text"><a href="product.html">(  Reviews )</a></span>
+                        </div><!-- End .rating-container -->
+                       
+                        <div class="product-nav">
+
+                        <%
+                            item.colors.map((color)=> {
+                        %>
+                                <% if(color){ %>
+                                    <span style="width: 20px; height: 20px; border-radius: 50px; background-color: <%- color %>"></span>
+                               <% } %>
+                               
+                        <% }) %>
+                        </div>
+                    </div>
+                </div>                         
+            </div>
+            <% }) %>
+        </div>End .owl-carousel -->
+    </div><!-- End .container -->
+</div>
+
+<script type="text/javascript">
+
+  
+    const selection = <%- JSON.stringify(item) %>;
+    let colorSection = document.querySelector("#color_set")
+    colorSection.addEventListener("click",(e)=>{
+        const target = e.target;
+        target.classList.add("selected_active");
+    })  
+    const selectedColor = document.getElementsByClassName("selected_active");
+    const addToCart = (a)=>{
+        if(selectedColor && !selectedColor[0]){
+            alert('Please select a color')
+            return;
+        }else{
+            const cartList = JSON.parse(localStorage.getItem("cart"));
+            const cartArray = cartList === null ? [] : cartList;
+          const IfCartItemExistInCart =  cartArray.find((item)=> item.id === selection.id);
+
+            if(IfCartItemExistInCart){
+                return alert('Item already in cart')
+            }
+            const id = selection.id;
+            const image = selection.image[0];
+            const name = selection.name;
+            const price = selection.price
+            const quantity= document.querySelector('#qty').value;
+            const color = selectedColor[0].style.backgroundColor;
+            
+
+
+           
+
+            const values = {
+                id: id,
+                name: name,
+                price: price,
+                color: color,
+                quantity: quantity,
+                image: image,
+              };
+
+           
+
+            cartArray.push(values)
+            localStorage.setItem("cart", JSON.stringify(cartArray));
+            window.location.reload()
+            
+        }
+
+    }
+
+
+    
+ 
+</script>

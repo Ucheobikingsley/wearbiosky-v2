@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The New Wave</title>
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="This clothing brand brings about spectacular designs that incorporates quality,luxury and style"/>
+    <meta name="author" content="nextinnovo">
+    <!-- Favicon -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo/favicon.png">
+    <link rel="manifest" href="images/icons/site.webmanifest">
+    <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#666666">
+
+    <link rel="stylesheet" href="vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css">
+    <meta name="apple-mobile-web-app-title" content="TNW">
+    <meta name="application-name" content="TNW">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/plugins/jquery.countdown.css">
+    <link rel="stylesheet" href="css/plugins/nouislider/nouislider.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/5b1f941fd6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="page-wrapper">
+       <%- include('../partials/mainheader.ejs') %>
+        <main class="main">
+            
+            <%- body %>
+        </main>
+        <%- include('../partials/mainfooter.ejs') %>
+    </div>
+
+
+    <button id="scroll-top" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="fa-solid fa-xmark"></i></span>
+
+            <form action="#shop_items" method="get" class="mobile-search">
+                <label for="mobile-search" class="sr-only">Search</label>
+                <input type="search" class="form-control" name="q" id="mobile-search" placeholder="Search product ..." required>
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            </form><!--End .mobile-search-->
+            
+            <nav class="mobile-nav">
+                <ul class="mobile-menu">
+                    <li>
+                        <a href="/">Home</a>
+
+                    </li>
+                    <li>
+                        <a href="/shop">Shop</a>
+                    
+                    </li>
+                    <li>
+                        <a href="/about" class="sf-with-ul">About</a>
+                
+                    </li>
+                 
+                </ul><!--End .mobile-menu-->
+            </nav><!-- End .mobile-nav -->
+
+            <div class="social-icons">
+                <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+
+            </div><!-- End .social-icons -->
+        </div><!-- End .mobile-menu-wrapper -->
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/plugins.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.hoverIntent.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/superfish.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/wNumb.js"></script>
+    <script src="js/jquery.plugin.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-input-spinner.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Main JS File -->
+    <script src="js/main.js"></script>
+<script>(function(){var js = "window['__CF$cv$params']={r:'7b0d1b20db9877d7',m:'3N96G_g0RjEepKaz3p2KsQXTw5wrchiEdB9SCbPCVdk-1680313037-0-Ac6y+zD7fTdZq3c17e3MdN2Y8cvlAIC+ftSVoCH114o6BJCfZYnA4hNkLQv+ZYnFqn6Yoj+yw9ewuUdtBus/5MVPZmLUtvT/D0lfTNzzrxkOycXSwRvT+pWxudbsUAoxlZM86e/51vcJncLdCnRls3I=',s:[0xcc70323898,0x8c8a533c39],u:'/cdn-cgi/challenge-platform/h/b'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/b/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>           
+</body>
+</html>
