@@ -19,7 +19,7 @@ app.use('/vendor', express.static('public/vendor'));
 app.use(expressEjsLayouts);
 app.set('view engine', 'ejs');
 
-app.get('/', async(req, res) => {
+app.get('', async(req, res) => {
     const query = req.query.q || ''
     try{
        let response;
