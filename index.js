@@ -99,4 +99,14 @@ app.get('/checkout', async (req, res) => {
     res.render('checkout', { layout: './layout/main', swal: Swal} )
 })
 
+
+app.get('/about', async(req,res)=>{
+
+    const query = req.query.q || '';
+        if(query){
+           res.redirect(`shop?q=${query}`)
+           return;
+        }
+    res.render('about', { layout: './layout/main'})
+})
 app.listen(port, ()=> console.info(`App listening on port ${port}`))
