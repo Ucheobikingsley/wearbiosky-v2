@@ -68,6 +68,7 @@
                                         </div><!-- End .product-action-vertical -->
                         
                                         <div class="product-action">
+                                            <% if(item.quantity > 0){ %>
                                         <button href="#" id="add_to_cart" class="btn-product btn-cart"   
                                         data-id="<%-
                                            item.id
@@ -81,6 +82,10 @@
                                      item.colors[0]
                                    %>" 
                                    data-price="<%- item.price %>"><span>ADD TO CART</span></button>
+                                   <% } else { %> 
+
+                                    <button class="btn-product btn-cart" style="cursor: not-allowed;"><span>Out Of Stock</span></button>
+                                  <% } %>   
                                         </div><!-- End .product-action -->
                                     </figure><!-- End .product-media -->
                         

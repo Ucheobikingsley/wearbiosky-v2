@@ -197,7 +197,11 @@
               
                 <div class="product product-27 text-center">
                     <figure class="product-media">
-                        <span class="product-label label-sale">SALE</span>
+                        <% if(item.quantity > 0){ %>
+                            <span class="product-label label-new">Sale</span>
+                        <% }else { %>
+                            <span class="product-label label-out">Out of stock</span>
+                        <% } %>
                         <a href="product.html">
                             <img src="<%- item.imageUrls[0] %>" alt="Product image" width="335" height="480" class="product-image" style="background-color: #fafafa;">
                             <% if(item.imageUrls[1]){ %>
@@ -212,7 +216,10 @@
                     </figure><!-- End .product-media -->
     
                     <div class="product-body">
-                        <div class="product-action">
+                    
+                          
+                        <div  class="product-action">
+                            <% if(item.quantity > 0){ %>
                             <button  id="add_to_cart" href="#" class="btn-product btn-cart"  data-id="<%-
                                 item.id
                             %>" 
@@ -225,6 +232,10 @@
                         item.colors[0]
                         %>" 
                         data-price="<%- item.price %>"><span>ADD TO CART</span></button>
+                        <% } else { %> 
+
+                           <button class="btn-product btn-cart" style="cursor: not-allowed;"><span>Out Of Stock</span></button>
+                         <% } %>   
                         </div>
     
                         <h3 class="product-cat"><a href="product.html"></a> <%- item.category  %></h3>

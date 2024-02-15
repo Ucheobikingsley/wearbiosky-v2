@@ -77,7 +77,7 @@
                             <label for="size">Size:</label>
                             <div class="select-custom">
                                 <select name="size" id="size" class="form-control">
-                                    <option value="#" selected="selected">Select a size</option>
+                                    
                                     <% item.sizes.forEach(function(size){ %>
                                         <option value="<%- size %>"><%- size %></option>
                                     <% }) %>
@@ -94,6 +94,7 @@
                         </div><!-- End .details-filter-row -->
 
                         <div class="product-details-action">
+                            <% if(item.quantity > 0){ %>
                             <button id="product_add" href="#" 
                             data-id="<%- item.id %>" 
                             data-image="<%- item.imageUrls %>" 
@@ -105,6 +106,11 @@
                       item.colors[0]
                     %>" 
                     data-price="<%- item.price %>" onClick="addToCart(1)" type="button"  class="btn-product btn-cart"><span>add to cart</span></button>
+
+                    <% } else { %> 
+
+                        <button class="btn-product btn-cart" style="cursor: not-allowed;"><span>Out Of Stock</span></button>
+                      <% } %>  
                         </div><!-- End .product-details-action -->
 
                         <div class="product-details-footer">
@@ -236,14 +242,25 @@
   
     const selection = <%- JSON.stringify(item) %>;
     let colorSection = document.querySelector("#color_set")
+    let sizeElement = document.getElementById("size");
+    var sizeValue = sizeElement.value;
     colorSection.addEventListener("click",(e)=>{
         const target = e.target;
+        if (target.classList.contains('selected_active')) {
+            target.classList.remove("selected_active");
+        }else{
+        const target = e.target;
         target.classList.add("selected_active");
+        }
     })  
     const selectedColor = document.getElementsByClassName("selected_active");
     const addToCart = (a)=>{
         if(selectedColor && !selectedColor[0]){
             alert('Please select a color')
+            return;
+        }else if(sizeValue === '#'){
+            console.log('log', sizeValue)
+            alert('Please select a size')
             return;
         }else{
             const cartList = JSON.parse(localStorage.getItem("cart"));
@@ -259,6 +276,7 @@
             const price = selection.price
             const quantity= document.querySelector('#qty').value;
             const color = selectedColor[0].style.backgroundColor;
+            const size = sizeValue;
             
 
 
@@ -271,6 +289,7 @@
                 color: color,
                 quantity: quantity,
                 image: image,
+                size: size
               };
 
            
