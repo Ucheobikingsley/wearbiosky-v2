@@ -106,4 +106,4 @@ app.get("/about", async (req, res) => {
 });
 app.listen(port, () => console.info(`App listening on port ${port}`));
 
-module.exports = app;
+export default app;
