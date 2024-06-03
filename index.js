@@ -105,3 +105,5 @@ app.get("/about", async (req, res) => {
   res.render("about", { layout: "./layout/main" });
 });
 app.listen(port, () => console.info(`App listening on port ${port}`));
+
+module.exports = app;
