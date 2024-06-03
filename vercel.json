@@ -2,11 +2,11 @@
   "version": 2,
   "name": "templates",
   "builds": [{
-    "src": "index.js",
+    "src": "index.ejs",
     "use": "@vercel/node"
   }],
   "routes": [{
     "src": "/(.*)",
-    "dest": "/index.js"
+    "dest": "/index.ejs"
   }]
 }
