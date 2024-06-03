@@ -1,12 +1,13 @@
 {
   "version": 2,
   "name": "templates",
+  "rewrites": [{ "source": "/(.*)", "destination": "index.js" }],
   "builds": [{
     "src": "index.ejs",
     "use": "@vercel/node"
   }],
   "routes": [{
     "src": "/(.*)",
-    "dest": "/index.ejs"
+    "dest": "/index.js"
   }]
 }
